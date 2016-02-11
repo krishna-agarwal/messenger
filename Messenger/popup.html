@@ -1,0 +1,88 @@
+<html ng-app="chatApp">
+<head>
+	<script src="js/angular.min.js"></script>
+	<script src="js/socket.io.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/constants.js"></script>
+	<script src="js/factory.js"></script>
+	<script src="js/socketScript.js"></script>
+	
+	 
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body ng-controller = "mainController">
+	<div>
+		<div class="appHeading">
+
+			
+			<p>{{appName}}</p>
+
+			<img src="menu.png" id="changeThemeButton" ng-click="toggleModal()">
+			<modal-dialog show='modalShown'>
+			  <button class="themeChangeButton" id="themeButton1" ng-click="changeTheme('css/style.css')"></button>
+			  <button class="themeChangeButton" id="themeButton2" ng-click="changeTheme('css/style2.css')"></button>
+			  <button class="themeChangeButton" id="themeButton3" ng-click="changeTheme('css/style3.css')"></button>
+			  <button class="themeChangeButton" id="themeButton4" ng-click="changeTheme('css/style4.css')"></button>
+			  <button class="themeChangeButton" id="themeButton5" ng-click="changeTheme('css/style5.css')"></button>
+			  <button class="themeChangeButton" id="themeButton6" ng-click="changeTheme('css/style6.css')"></button>
+			</modal-dialog>
+
+		</div>
+		
+		<div class="welcomeDiv" ng-show="!userNameExist">
+			Welcome to <br> Messanger
+			<span class="emj">&#x1F4E2;</span>
+		</div>
+
+		<div class="chatBoxWrapper" ng-show="userNameExist">
+			<div class="usersBox">
+				<li class="listItem" ng-repeat="user in userList" id="{{user}}_label"  ng-class="user == chattingTo ? 'selected' : 'nonSelected'" ng-if="user != userName" ng-click="selectUser(user)">&nbsp{{user}}<span id="{{user}}_new" class="hiddenNew">new</span><span id="{{user}}_typing" class="hiddenTyping">typing...</span></li>
+
+				<li class="listItem" id="Broadcast_label"  ng-class="'Broadcast' == chattingTo ? 'selected' : 'nonSelected'" ng-show="userList.length>2" ng-click="selectUser('Broadcast')">&nbspBroadcast<span id="Broadcast_new" class="hiddenNew">new</span></li>
+
+			</div>
+			<div class="chatBox" ng-repeat="user in userList"  ng-show="user == chattingTo">
+				<div class="chatBoxDiv">
+					<div class="messages" id="{{user}}">
+					</div>
+					<hr>
+					<div class="messageInputBox">
+						<form>
+							<input class="messageInputText" id="{{user}}_message_input" type="text" class ng-model="message" placeholder="Message..." ng-change="sendTypingStatus()"> 
+							<button type="submit" class="messageInputButton" ng-disabled="!message" ng-click="sendMessage()">Go</button>
+						</form>
+					</div>
+				</div>
+			</div>	
+
+			<div class="chatBox"  ng-show="'Broadcast' == chattingTo">
+				<div class="chatBoxDiv">
+					<div class="messages" id="Broadcast">
+					</div>
+					<hr>
+					<div class="messageInputBox">
+						<form>
+							<input class="messageInputText" id="Broadcast_message_input" type="text" class ng-model="message" placeholder="Message..." ng-change="sendTypingStatus()"> 
+							<button type="submit" class="messageInputButton" ng-disabled="!message" ng-click="sendMessage()">Go</button>
+						</form>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="userNameFormWrapper" ng-show="!userNameExist">
+			<form>
+				<input class="userNameInput" type="text" ng-model="userName" placeholder="User Name" autofocus> 
+				<button type="submit" ng-click="addUser()" ng-disabled="!userName">Add</button>
+			</form>
+		</div>
+
+		<div class="userNameFooterWrapper" ng-show="userNameExist">
+			<p>{{userName}}</p>
+		</div>
+      
+	</div>
+		
+</body>
+
+</html>

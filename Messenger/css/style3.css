@@ -1,0 +1,287 @@
+body{
+	margin : 0px;
+	padding:0px;
+}
+/*------------------font family-----------*/
+@font-face {
+	font-family: "EmojiSymbols";
+	src: url('font/EmojiSymbols-Regular.woff') format('woff');
+	text-decoration: none;
+	font-style: normal;
+}
+.emj {
+	font-family: "EmojiSymbols";
+	line-height: 1;
+}
+/*----------------------------------------*/
+
+.appHeading{
+	padding : 1px 0px 1px 0px;
+	height: 10%;
+	text-align : center;
+	background-color : #0B083B;
+	color : #fff;
+}
+.welcomeDiv{
+	width: 100%;
+	height: 80%;
+	background-color : #E0E0FA;
+	display: -webkit-box;
+	text-align: -webkit-center;
+	color: #0B083B;
+	font-size: 60px;
+	text-shadow: rgb(224, 224, 224) 1px 1px 0px;
+}
+.chatBoxWrapper{
+	width: 100%;
+	height: 80%;
+	background-color : #1D1959;
+	display: -webkit-box;
+}
+.usersBox{
+	width: 50%;
+	height: 100%;
+	background-color : #363377;
+}
+.listItem{
+	list-style-type: none;
+	width: 100%;
+	height: 35px;
+	background-color:#fff;
+	color: black;
+	border-bottom: 1px solid #888;
+	font-size: 2em;
+    padding: 5px 0px;
+    position: relative;
+}
+.selected{
+	background-color:#1D1959 !important;
+	color: #fff;
+}
+.nonSelected{
+	background-color:#fff;
+	color: #000;
+}
+.hiddenNew{
+	display: none;
+}
+.visibleNew{
+	display: inline;
+	position: absolute;
+	right: 5px;
+	background-color: #1D1959;
+	color: #fff;
+	border-radius: 10px;
+    font-size: 0.5em;
+    padding: 0px 4px 4px 4px;
+}
+.hiddenTyping{
+	display: none;
+}
+.visibleTyping{
+	display: inline;
+	position: absolute;
+	right: 5px;
+	top : 25px;
+	color: #1D1959;
+	border-radius: 10px;
+    font-size: 0.5em;
+    padding: 0px 4px 4px 4px;
+}
+.visibleTypingSelected{
+	display: inline;
+	position: absolute;
+	right: 5px;
+	top : 25px;
+	color: #fff;
+	border-radius: 10px;
+    font-size: 0.5em;
+    padding: 0px 4px 4px 4px;
+}
+.chatBox{
+	width: 50%;
+	height: 100%;
+	background-color : #1D1959;
+	position: relative;
+}
+.chatBoxDiv{
+	width: 95%;
+	height: 95%;
+	border: 1px solid #363377;
+	position: absolute;
+  	top: 50%; 
+  	left: 50%;
+  	transform: translate(-50%,-50%);
+}
+.messages{
+	width: 100%;
+	height: 85%;
+	overflow-y: auto;
+}
+::-webkit-scrollbar {
+    height: 12px;
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #E0E0FA;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #827FB2;
+    -webkit-border-radius: 1ex;
+}
+.messageInputBox{
+	width: 100%;
+	height: 10%;
+	margin: 0px 5px 0px 5px;
+}
+.messageInputText{
+	width: 80%;
+	height: 100%;
+}
+.messageInputButton{
+	width: 15%;
+	height: 100%;
+}
+
+/*----bubble chat css----*/
+.bubble{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    font-size: 1.3em;
+    display: inline-block;
+    padding: 8px 15px;
+    position: relative;
+    vertical-align: top;
+    clear: both;
+    max-width: 75%;
+}
+
+.bubble::before {
+    background-color: #F2F2F2;
+    content: "\00a0";
+    display: block;
+    height: 12px;
+    position: absolute;
+    top: 5px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  15px;
+}
+
+.me {
+    float: left;   
+    margin: 5px 45px 5px 20px;         
+}
+
+.me::before {
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -5px;           
+}
+
+.you {
+    float: right;    
+    margin: 5px 20px 5px 45px;         
+}
+
+.you::before {
+    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+    right: -5px;    
+}
+.broadcastFrom{
+	color: #0B083B;
+	font-weight: 800;
+}
+/*----------bubble chat end----------*/
+
+.userNameFormWrapper{
+	width: 100%;
+	height: 10%;
+	background-color : rgb(38, 40, 47);
+	text-align: center;
+	position: absolute;
+	bottom: 0px;
+}
+.userNameFooterWrapper{
+	width: 100%;
+	height: 10%;
+	background-color : rgb(38, 40, 47);
+	position: absolute;
+	bottom: 0px;
+	color: white;
+	text-align: center;
+    font-weight: 900;
+    font-size: 1.3em;
+}
+.userNameInput{
+	margin-top: 12px;
+}
+
+/*------------modal css-----------------------*/
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 177px !important; 
+  height: 120px !important;
+  top: 5px;
+  right: 5px;
+  background-color: #000;
+  border-radius: 5px;
+  box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.themeChangeButton{
+	border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+#themeButton1{
+	background-color: #724C8F;
+}
+#themeButton2{
+	background-color: #801515;
+}
+#themeButton3{
+	background-color: #1D1959;
+}
+#themeButton4{
+	background-color: #0D5047;
+}
+#themeButton5{
+	background-color: #2B6D12;
+}
+#themeButton6{
+	background-color: #805215;
+}
+#changeThemeButton{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+    width: 45px;
+    height: 45px;    
+    background-color: rgba( 0, 0, 0, .3 );
+}

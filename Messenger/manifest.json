@@ -1,0 +1,17 @@
+{
+  "name": "Messenger",
+  "description": "Messaging App",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*", "notifications"
+  ],
+  "background": { "scripts": ["background.js"] },
+  
+   "browser_action": {
+     "default_icon": "icon.png",
+	  "default_title": "let's chat"
+   },
+  "content_security_policy": "script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'self'",
+
+  "manifest_version": 2
+}
